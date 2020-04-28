@@ -3,6 +3,7 @@
 @use './Utilities/sizing.scss';
 @use './content/background.scss';
 @use './components/banner.scss';
+@use '../node_modules/swiper/swiper.scss';
 
 
 body{
@@ -14,27 +15,23 @@ body{
     background-image: url(../images/subbg.gif);
     text-align: center;
 
-    h1{
-        display: inline-block;
-        margin: 1rem 0;
-
-        @media (min-width: 768px) {
-            margin: 0;
+    .logo{
+        justify-content: center;
+        @media (min-width:768px) {
+            text-align: left;
+        }
+        h1{
+            margin: 0 auto 30px;
+            width: sizing.$width-75;
+            @media(min-width:768px) {
+                margin: 0;
+            }
+            img{
+                width: sizing.$width-full;
+            }
         }
     }
 
-}
-
-.logo{
-    @media (min-width:768px) {
-        text-align: left;
-    }
-    h1{
-        width: sizing.$width-75;
-        img{
-            width: sizing.$width-full;
-        }
-    }
 }
 
 .social_media_area{
@@ -133,7 +130,7 @@ body{
             background-color: color.$green;
         }
         li{
-            border-right: solid 1px color.$font-gray;
+            border-right: solid 1px color.$button-gray;
             a{
                 font-size: 0.5rem;
                 color: color.$font-black;
@@ -145,6 +142,7 @@ body{
                 }
             }
         }
+
         .dropdown_menu{
             position: relative;
             &:hover>.dropdown_item{
@@ -185,7 +183,7 @@ body{
         input{
             padding: 5px;
             width: sizing.$width-full;
-            border: solid 2px color.$font-gray;
+            border: solid 1px color.$button-gray;
             border-radius: 2px;
             @include background.search-icon;
         }
@@ -195,7 +193,7 @@ body{
 main{
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.5);
     background-image: url(../images/subbg.gif);
-    padding: 0 15px;
+    padding: 0 15px 30px;
     .banner_area{
         margin: 0 -15px;
         .banner{
@@ -281,9 +279,7 @@ main{
         }
         figure{
             .company_image{
-                @media (min-width:992px) {
-                    margin-bottom: 15px;
-                }
+                margin-bottom: 15px;
                 img{
                     width: sizing.$width-full;
                 }
@@ -327,6 +323,9 @@ main{
         .news_and_events{
             .news_item{
                 display: flex;
+                &:nth-child(even){
+                    margin-bottom: 30px;
+                }
                 .news_image{
                     flex: 0 0 45%;
                     margin-right: 15px;
@@ -337,19 +336,99 @@ main{
                 .news_content{
                     flex: 0 0 50%;
                     time{
+                        display: inline-block;
                         color: color.$font-white;
                         font-weight: 600;
-                        padding: 10px 15px;
-                        margin-bottom: 15px;
+                        padding: 5px 10px;
+                        margin-bottom: 10px;
                         background-color: color.$green;
                     }
                     p{
                         font-size: 14px;
-                        line-height: 1;
+                        line-height: 1.5;
+                        a{
+                            display: inline;
+                            font-size: 16px;
+                            color: color.$font-black;
+                            text-transform: capitalize;
+                        }
                     }
                 }
             }
         }
+    }
 
+    .line_gap{
+        border-bottom: solid 2px color.$background-gray;
+        margin: 30px 0;
+    }
+
+    .feature_works{
+        .photo_gallery{
+            h2{
+                text-align: left;
+                text-transform: uppercase;
+                @media (max-width:992px) {
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+            }
+            .gallery_button{
+                text-align: right;
+                @media (max-width:992px) {
+                    display: none;
+                }
+                .button_next{
+                    width: sizing.$width-25 * 0.08;
+                    display: inline-block;
+                    transform: rotate(90deg);
+                }
+                .button_prev{
+                    width: sizing.$width-25 * 0.08;
+                    display: inline-block;
+                    transform: rotate(-90deg);
+                }
+            }
+            .gallery_item{
+                box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.5);
+                img{
+                    width: sizing.$width-full;
+                    object-fit: cover;
+                }
+            }
+
+        }
+    }
+}
+
+footer{
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.5);
+    background-image: url(../images/subbg.gif);
+    padding: 30px 15px;
+    margin-top: 30px;
+    .footer_area{
+        text-align: center;
+        @media (min-width:992px) {
+            text-align: left;
+        }
+        h4{
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .testimonials{
+            .text_balloon{
+                background-color: color.$background-gray;
+                border: solid 1px color.$button-gray;
+                border-radius: 5px;
+                &::after{
+                    
+                }
+                p{
+                    font-size: 14px;
+                    color: color.$font-gray;
+                    line-height: 1.2;
+                }
+            }
+        }
     }
 }

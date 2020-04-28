@@ -25,9 +25,11 @@
 
 @mixin search-icon {
     background-color: color.$background-gray;
-    background-image: url(../images/search.png);
-    background-repeat: no-repeat;
-    background-position: top 7px right 7px;
+    @media (min-width:768px) {
+        background-image: url(../images/search.png);
+        background-repeat: no-repeat;
+        background-position: top 7px right 7px;
+    }
 }
 
 @mixin dropdown-arrow {
