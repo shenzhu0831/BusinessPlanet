@@ -1,0 +1,167 @@
+@use '../module/reset.scss';
+@use '../Utilities/color.scss';
+@use '../Utilities/sizing.scss';
+@use '../Utilities/font-size.scss';
+@use '../Utilities/background.scss';
+@use '../components/form.scss';
+@use '../element/button.scss';
+
+footer{
+    .footer_area{
+        margin-top: 60px;
+        @extend %background-shadow;
+        background-image: url(../images/subbg.gif);
+        text-align: center;
+        padding: 30px;
+        @media (min-width:992px) {
+            text-align: left;
+        }
+        .latest_tweets{
+            h4{
+                @extend %font-h4;
+            }
+            p{
+                @extend %context;
+            }
+        }
+        .testimonials{
+            h4{
+                @extend %font-h4;
+            }
+            .ceo_info{
+                margin-top: 30px;
+                .ceo_image{
+                    display: inline-block;
+                    vertical-align: middle;
+                    img{
+                        object-fit: cover;
+                    }
+                }
+                .ceo_introduction{
+                    display: inline-block;
+                    vertical-align: middle;
+                    span{
+                        @extend %context;
+                    }
+                    a{
+                        color: color.$green;
+                        @extend %context;
+                        font-weight: 600;
+                        font-style: oblique;
+                    }
+                }
+            }
+        }
+
+        .get_in_touch{
+
+            h4{
+                @extend %font-h4;
+            }
+            form{
+                .name_text{
+                    @extend %input-style;
+                    padding: 5px;
+                }
+                .email_text{
+                    @extend %input-style;
+                    padding: 5px;
+                }
+                .text_area{
+                    @extend %input-style;
+                    padding: 5px;
+                    resize: none    ;
+                }
+            }
+            .clear_button{
+                @extend %form-darkgray-button;
+                padding: 5px 10px;
+            }
+            .send_button{
+                @extend %form-green-button;
+                padding: 5px 10px;
+            }
+        }
+
+        .flickr{
+            h4{
+                @extend %font-h4;
+            }
+            .photo_area{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                a{
+                    width: calc((100% - 15px) / 4);
+                    margin-bottom: 5px;
+                    // margin-right: 5px;
+                }
+                img{
+                    width: sizing.$width-full;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .copyright_area{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 0;
+
+        .copyright{
+            flex: 0 0 100%;
+            margin-bottom: 15px;
+            text-align: center;
+            @media (min-width:992px) {
+                flex: 0 0 40%;
+                text-align: left;
+                margin-bottom: 0;
+            }
+            .copyright_text{
+                @include font-size.copyright-font(color.$font-gray,uppercase);
+                &::after{
+                    content: "";
+                    border-right: solid 2px color.$font-gray;
+                    margin-right: 5px;
+                }
+            }
+            a{
+                @include font-size.copyright-font(color.$green,capitalize);
+                display: inline-block;
+            }
+        }
+
+        .footer_menu{
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @media (min-width:768px) {
+                flex-direction: row;
+                justify-content: center;
+            }
+            @media (min-width:992px) {
+                flex: 0 0 60%;
+                justify-content: flex-end;
+            }
+
+            a{
+                @include font-size.copyright-font(color.$font-gray,uppercase);
+                letter-spacing: 1px;
+                padding: 5px 8px;
+                &:hover{
+                    color: color.$green;
+                }
+                @media (min-width:768px) {
+                    border-right: solid 2px color.$font-gray;
+                    padding: 0 8px;
+                    &:last-child{
+                        border: none;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
